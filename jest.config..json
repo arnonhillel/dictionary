@@ -1,0 +1,45 @@
+{
+  "name":"unit",
+  "displayName":"Unit Tests",
+  "roots":[
+    "<rootDir>/src"
+  ],
+  "testEnvironment":"node",
+  "moduleFileExtensions":[
+    "ts",
+    "js",
+    "json"
+  ],
+  "transform":{
+    "^.+\\.ts$":"ts-jest"
+  },
+  "globals":{
+    "ts-jest":{
+      "tsConfig":"tsconfig.json"
+    }
+  },
+  "testMatch":[
+        "<rootDir>/src/**/__tests__/**/*.(ts|js)",
+        "<rootDir>/src/**/tests/**/*.(ts|js)"
+  ],
+  "testPathIgnorePatterns":[
+    "node_modules"
+  ],
+  "coveragePathIgnorePatterns":[
+        "<rootDir>/src/App.ts",
+        "<rootDir>/src/Server.ts",
+        "<rootDir>/src/Configuration.ts"
+  ],
+  "moduleNameMapper":{
+    "^models(.*)$":"<rootDir>/src/models/$1",
+    "^routers(.*)$":"<rootDir>/src/routers/$1",
+    "^configuration(.*)$":"<rootDir>/src/configuration/$1",
+    "^middleware(.*)$":"<rootDir>/src/middleware/$1",
+    "^strategies(.*)$":"<rootDir>/component-tests/strategies/$1"
+  },
+  "collectCoverageFrom":"coverage/unit-tests",
+  "moduleDirectories":[
+    "node_modules",
+    "./src"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "name": "node-express-boilerplate",
+  "version": "1.0.0",
+  "description": "node-express-boilerplate",
+  "main": "server.ts",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "start": "node build/Run.js",
+    "dev": "nodemon",
+    "lint": "eslint --fix ./tsconfig.json",
+    "compile": "tsc",
+    "test": "jest --config jest.config.json --passWithNoTests --verbose",
+    "test:component": "jest --projects jest.component.config.json --passWithNoTests --verbose --coverage",
+    "test:component:compact": "jest --projects jest.component.config.json --passWithNoTests --detectOpenHandles --runInBand --forceExit",
+    "test:component:coverage": "jest --projects jest.component.config.json --passWithNoTests --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "express",
+    "typescript",
+    "boileroplate"
+  ],
+  "author": "Arnon Hillel",
+  "license": "ISC",
+  "dependencies": {
+    "@types/atob": "^2.1.2",
+    "@types/aws-sdk": "^2.7.0",
+    "atob": "^2.1.2",
+    "await-to-js": "^3.0.0",
+    "aws-sdk": "^2.974.0",
+    "axios": "^0.21.1",
+    "buffer": "^6.0.3",
+    "busboy": "^0.3.1",
+    "dotenv": "^7.0.0",
+    "express": "^4.17.1",
+    "express-http-context": "^1.2.4",
+    "express-openid-connect": "^2.5.0",
+    "http-status-codes": "^2.1.4",
+    "json-web-token": "^3.2.0",
+    "mongodb": "3.6.5",
+    "mongoose": "^6.0.11",
+    "node-fetch": "^2.6.0",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.8.0",
+    "typescript": "^4.3.5",
+    "uuid": "^8.3.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/busboy": "^0.2.4",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^24.0.13",
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/lodash": "^4.14.138",
+    "@types/mongodb": "3.6.5",
+    "@types/mongoose": "^5.11.97",
+    "@types/supertest": "^2.0.7",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-config-wesbos": "^0.0.19",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "eslint-plugin-typescript": "^0.14.0",
+    "jest": "^24.9.0",
+    "jest-express": "^1.10.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^1.19.1",
+    "supertest": "^4.0.2",
+    "ts-jest": "^23.10.5"
+  },
+  "jest": {
+    "projects": [
+      "jest.config.json",
+      "jest.component.config.json"
+    ]
+  }
+}
