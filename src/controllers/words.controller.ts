@@ -1,7 +1,7 @@
 import { HttpErrorMsg } from '../constants';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { DictionaryType, SearchWordModel } from 'models/dictionary.models';
+import { DictionaryType, TranslatorType } from 'models/dictionary.models';
 import { wordsService } from 'services/words.service';
 
 class WordsController {
@@ -22,15 +22,21 @@ class WordsController {
 
 
     getWord = async (request: Request, response: Response): Promise<void> => {
-        console.log(request.query);
 
-        const { from, word, language } = request.query;
-        if (!word || !from || !language) {
+        const { source, word, target } = request.query;
+        if (!word || !source || !target) {
             response.status(StatusCodes.BAD_REQUEST).send(StatusCodes.BAD_REQUEST);
             return;
         }
+
+        const translateRequest: TranslatorType = {
+            source: this.normalizeText(source),
+            word: this.normalizeText(word),
+            target: this.normalizeText(target)
+        }
+
         try {
-            const result = await wordsService.getWord(this.normalizeText(from), this.normalizeText(word), this.normalizeText(language))
+            const result = await wordsService.getWord(translateRequest)
             response.status(StatusCodes.OK).send(result);
             return;
         } catch (error) {
@@ -41,7 +47,7 @@ class WordsController {
     };
 
     normalizeText = (text: any) => {
-        return text.toLocaleString().toLowerCase()
+        return text.toLowerCase()
     };
 }
 

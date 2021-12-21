@@ -24,5 +24,5 @@ export const getConfiguration = (env: NodeJS.ProcessEnv = process.env): Configur
     mongodbUser: env.MONGO_DB_USER || 'mongodbUser',
     mongodbPassword: env.MONGO_DB_PASSWORD || 'mongodbPassword',
     apiEndpoint: env.API_ENDPOINT || 'http://localhost:5000',
-    clientEndpoint: env.CLIENT_ENDPOINT || 'http://localhost:4200',
+    clientEndpoint: env.CLIENT_ENDPOINT || 'http://localhost:3000',
 });

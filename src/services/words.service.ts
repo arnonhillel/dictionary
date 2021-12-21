@@ -1,8 +1,6 @@
 import to from 'await-to-js';
 import { connectDB } from 'db/ClientDB';
-import { Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import { DictionaryType, SearchWordModel } from 'models/dictionary.models';
+import { DictionaryType, TranslatorType } from 'models/dictionary.models';
 import { Word } from "../db/db.models";
 import { HttpErrorMsg } from '../constants';
 
@@ -37,7 +35,7 @@ class WordsService {
 
 
 
-    getWord = async (from: string, word: string, language: string) => {
+    getWord = async (translateRequest: TranslatorType) => {
         const [errorConnection, connection] = await to(connectDB(global.configuration));
 
         if (errorConnection) {
@@ -45,10 +43,10 @@ class WordsService {
         }
 
         if (connection) {
-            const filter = { [from]: word }
-            const include = { [language]: 1 }
+            const filter = { [translateRequest.source]: translateRequest.word }
+            const include = { [translateRequest.target]: 1 }
             const result = await Word.find(filter, include).exec();
-            console.log(`Success translate from ${from} into ${language}`, result);
+            console.log(`Success translate from ${translateRequest.source} into ${translateRequest.target}`, result);
             return result;
 
         }

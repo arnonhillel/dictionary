@@ -3,7 +3,8 @@ export interface DictionaryType {
     he: string;
 }
 
-export class SearchWordModel {
-    en: any;
-    he: any;
+export interface TranslatorType {
+    source: string;
+    word: string;
+    target: string;
 }
