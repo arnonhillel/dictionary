@@ -20,7 +20,7 @@ export const getConfiguration = (env: NodeJS.ProcessEnv = process.env): Configur
     serverPort: env.SERVER_PORT || '5000',
     logLevel: env.LOG_LEVEL || 'debug',
     currentEnv: env.CURRENT_ENV || 'local',
-    mongodbUrl: env.MONGO_DB_URL || 'mongoDbUrl',
+    mongodbUrl: env.MONGO_DB_URL || 'http://localhost:27017',
     mongodbUser: env.MONGO_DB_USER || 'mongodbUser',
     mongodbPassword: env.MONGO_DB_PASSWORD || 'mongodbPassword',
     apiEndpoint: env.API_ENDPOINT || 'http://localhost:5000',
